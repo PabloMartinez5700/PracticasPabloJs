@@ -1,0 +1,4 @@
+La programacion funcional consiste en intentar que el código se centre, 
+más que nada en funciones para simplifica y para que sea mas reducido. 
+Cuando hagamos nuestras funciones solo son llamarlas, y nuestro codigo
+es mas limpio y flexible a la hora de trabajar con el.

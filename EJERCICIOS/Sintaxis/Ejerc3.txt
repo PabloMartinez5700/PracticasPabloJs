@@ -1,0 +1,10 @@
+Hosting es el comportamiento por defecto que tiene JavaScript de mover declaraciones
+de variables al principio del código.
+
+Por ejemplo:
+resul = (5 + 1);
+console.log(resul);
+let resul;
+
+Explicacion: He declarado al final de codigo una variable y al principio le asigno la suma de dos valores y luego 
+la meustro. JavaScript me permite llamar a una varaible declara al final de nuestro codigo.

@@ -1,0 +1,5 @@
+ - Declarar al principo del codigo 'use strict', para que el compilador nos avise si por ejemplo no declaramos un variable etc...
+ - Utilizar la funcion arrow cuando sea necesario, para simplificar nuestro codigo
+ - Usar en la declaraciones de variables el tipo de dato 'Let'
+ - Utilizar funciones para reducir nuestro codigo
+ - Comentar el codigo

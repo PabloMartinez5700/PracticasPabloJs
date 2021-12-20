@@ -1,0 +1,42 @@
+#main{
+    display: flex;
+}
+
+body > div {
+    margin: 50px;
+}
+
+#newProduct{
+    border: solid 2px black;
+    width: 25%;
+    height: 400px;
+    display: inline-block;
+    margin-right: 2%;
+}
+
+#deleteProduct{
+    border: solid 2px black;
+    width: 25%;
+    height: 200px;
+    display: inline-block;
+    margin-right: 2%;
+}
+
+#changeStock{
+    border: solid 2px black;
+    width: 25%;
+    height: 300px;
+    display: inline-block;
+}
+
+#form-group{
+    margin-bottom: 30px;
+}
+
+#form-main{
+    margin: 20px;
+}
+
+#error{
+    visibility: hidden;
+}

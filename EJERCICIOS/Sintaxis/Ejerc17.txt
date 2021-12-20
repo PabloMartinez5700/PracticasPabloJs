@@ -1,0 +1,10 @@
+- El metodo length() --> Nos devuelve un numero entero, que corresponde con la longuitud de una cadena de texto.
+
+- El metodo trim() --> Nos quita de un cadena de texto, los espacios de la parte de delante y de detras.
+
+- El metodo substring() --> Nos devuelve una cadena de texto nueva de la cadena original, al metodo se le puede pasar paramatros. 
+Es decir los caracteres que quieremos devolver a la nueva cadena, siempre empiezan en la posicion 0.
+
+- El metodo charAt() --> Nos devuelve el caracter, que le hemos indicado con la posicion de nuestra cadena de texto, la posicion siempre empieza por 0.
+
+- El metodo IndexOf() --> Nos devuelve un numero entero que corresponde a la posicion donde esta el carecter que le he pasado cono parametro de una cadena de texto, posicion siempre empieza por 0.

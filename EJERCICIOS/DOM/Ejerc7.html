@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .clicked {
+            background-color: #555555;
+            color: #FFF;
+            font-weight: bold;
+            padding: 10px;
+            cursor: pointer;
+        }
+        
+        #debug {
+            background-color: #CCC;
+            margin-top: 10px;
+            padding: 10px;
+        }
+        
+        #debug .debugLine {
+            margin: 2px 0;
+            padding: 1px 5px;
+            background-color: #EEE;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        let string = prompt('Introduce las columnas y las filas separado por comas(x,y):');
+        let arr = string.replaceAll(/\s/g, '').split(',');
+        tableCreate(arr[0], arr[1]);
+
+        function tableCreate(col, row) {
+            const body = document.body,
+                tbl = document.createElement('table');
+            tbl.setAttribute("id", "table");
+            tbl.style.width = '100px';
+            tbl.style.border = '1px solid black';
+
+            let cellSpec = prompt('Introduce la CELDA, en la que quieres introducir texto (x,y): ')
+            let cellSpecString = prompt('Introduce el texto: ')
+            let arrCellPos = cellSpec.replaceAll(/\s/g, '').split(',');
+
+
+            for (let i = 0; i < row; i++) {
+                const tr = tbl.insertRow();
+                for (let j = 0; j < col; j++) {
+                    const td = tr.insertCell();
+                    if (i == arrCellPos[0] && j == arrCellPos[1]) {
+                        var p = document.createElement('p');
+                        p.innerHTML = cellSpecString;
+                        td.appendChild(p);
+                    } else {
+                        if (i == 0) {
+                            var headerCell = document.createElement("TH");
+                            headerCell.innerHTML = prompt('Cabecera ' + (j + 1));
+                            td.appendChild(headerCell);
+                        }
+                    }
+                    td.style.width = '80px';
+                    td.style.height = '50px';
+                    td.style.border = '1px solid black';
+                }
+            }
+            body.appendChild(tbl);
+
+            $(document).ready(function() {
+                $('#table').click(function(event) {
+                    let target = $(event.target);
+                    $td = target.closest('td');
+                    $td.toggleClass('clicked');
+                });
+                $('#table').dblclick(function() {
+                    let target = $(event.target);
+                    let td = target.closest('td');
+
+                    let p = document.createElement('p');
+                    p.innerHTML = 'reservado';
+
+                    $td.append(p);
+                });
+            });
+        }
+    </script>
+</body>
+</html>

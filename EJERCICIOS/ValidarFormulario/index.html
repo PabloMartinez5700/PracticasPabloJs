@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validar Formulario</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<style>
+    h1{
+        text-align: center;
+        color: rgb(255, 166, 0);
+        font-style:initial;
+        margin: 10px;
+
+    }
+
+    form{
+        margin: 25px;
+    }
+
+    p{
+        font-size:20px;
+        font-style:initial
+    }
+
+    .error {
+        color: red;
+    }       
+
+    input:invalid { 
+        border-color: 1px red;
+    }
+
+    input:valid {
+        border: 1px solid green;
+    }
+</style>
+
+<body>
+    <h1>FORMULARIO VALIDAR</h1>
+
+    <br>
+
+    <form id="formulario" method="post" action="">
+
+        <div class="row">
+            <div class="form-group col-md-4">
+            <input type="text" id="nombre" class="form-control" placeholder="Nombre" minlength="15" maxlength="80" required pattern="[a-z A-Z]+">
+          </div>
+          
+         
+          <div class="form-group col-md-4">
+            <input type="text" id="apellidos" class="form-control" placeholder="Apellidos" minlength="15" maxlength="80" required pattern="[a-z A-Z]+">
+          </div>     
+        </div>
+        
+        <br>
+
+        <div class="row">
+            <div class="form-group col-md-4">
+                <input type="email" id="email" class="form-control" placeholder="Email" required pattern="[(.es|.com)]$">
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="form-group col-md-3">
+                <input type="text" id="postal" class="form-control" placeholder="Código Postal" required pattern="[0-9]{5}">
+            </div>     
+
+            <div class="form-group col-md-3">
+                <input type="date" id="fecha" class="form-control" placeholder="Fecha de Nacimiento" required>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="custom-control custom-radio" required>
+            <input type="radio" class="custom-control-input" id="hombr" name="radio-stacked" value"hombre">
+            <label class="custom-control-label">Hombre</label>
+        </div>
+
+        <div class="custom-control custom-radio mb-3" required>
+            <input type="radio" class="custom-control-input" id="muj" name="radio-stacked" value"mujer">
+            <label class="custom-control-label">Mujer</label>
+        </div>
+
+        <br>
+
+        <select class="custom-select">
+            <option selected>Ciclo que estas estudiando</option>
+            <option value="1">DAM</option>
+            <option value="2">DAW</option>
+            <option value="3">ASIR</option>
+        </select>
+
+        <br>
+        <br>
+
+        <p>Frameworks que conozcas</p>
+
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" name="customRadioInline1" class="custom-control-input">
+            <label class="custom-control-label">Vue</label>
+        </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" name="customRadioInline1" class="custom-control-input">
+            <label class="custom-control-label">Simfony</label>
+        </div>
+
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" name="customRadioInline1" class="custom-control-input">
+            <label class="custom-control-label">Angular</label>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+            <label class="custom-control-label">Node JS</label>
+            
+        </div>
+
+        <br>
+
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="check" required>
+                <label class="form-check-label">
+                    Acepta las condiciones del servicio
+                </label>
+            </div>
+        </div>
+
+        <br>
+
+        <button type="submit" class="btn btn-primary" onclick="myFunction">Enviar</button> 
+    </form>
+</body>
+<script>
+
+
+function myFunction() {
+
+    const nombre = document.getElementById("nombre")
+
+    nombre.setCustomValidity('')
+
+    if (nombre.validity.valueMissing) {
+        nombre.setCustomValidity('No has Introducido nada todavia.') ;
+    } else if (nombre.validity.tooShort) {
+        nombre.setCustomValidity('Longuitud minima es de 15 caracteres.')
+    } else if (nombre.validity.tooLong) {
+        nombre.setCustomValidity('Longuitud maxima es de 80 caracteres.')
+    }
+    const apellidos = document.getElementById("apellidos");
+    apellidos.setCustomValidity('') ;
+    if (apellidos.validity.valueMissing) {
+        apellidos.setCustomValidity('No has Introducido nada todavia.')
+    } else if (apellidos.validity.tooShort) {
+        apellidos.setCustomValidity('Longuitud minima es de 15 caracteres.')
+    } else if (apellidos.validity.tooLong) {
+        apellidos.setCustomValidity('Longuitud maxima es de 80 caracteres.')
+    }
+
+    const email = document.getElementById("email");
+    email.setCustomValidity('') ;
+    if (email.validity.valueMissing) {
+        email.setCustomValidity('No has Introducido nada todavia.')
+    }if(email.contains('@')) email.setCustomValidity('Debe de contener un @')
+
+    const cp = document.getElementById("cp");
+    cp.setCustomValidity('') ;
+    if (cp.validity.valueMissing) {
+        cp.setCustomValidity('No has Introducido nada todavia.')
+    } else if (cp.validity.pattern) {
+        cp.setCustomValidity('No has introducido bien el formato')
+    }
+}
+ 
+
+
+  
+
+
+
+
+
+</script>
+</html>
